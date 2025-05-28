@@ -1,0 +1,121 @@
+:root {
+    --h1: clamp(2rem, 5vw, 3rem);
+    --h2: clamp(1.5rem, 5vw, 2rem);
+    --h3: 1.17em;
+    --p: 1em;
+    --borderradius: 1rem;
+    --shadow: 0 5px 15px rgba(2, 2, 2, 0.3);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin-top: 6rem;
+}
+
+.logo {
+    border-radius: 50%;
+}
+
+/* hamburger */
+.burger {
+    font-size: 2.5em; 
+    cursor: pointer;
+}
+
+#checkbox {
+    display: none;
+}
+
+/* navigatie */
+nav {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    align-items: center;
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+nav div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+nav ul {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    left: 100%;
+    height: 100vh;
+    transition: left 0.3s ease-in-out;
+}
+
+nav ul li:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+/* contact button */
+#contact {
+    display: block;
+    position: relative;
+    background-color: red;
+    max-width: 100%;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    margin: 0 2rem;
+    border-radius: var(--borderradius);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#contact:hover {
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+}
+
+nav ul li:hover a:not(#contact) {
+    margin-left: 0.5rem;
+    transition: margin-left 0.2s;
+}
+
+
+nav ul li:first-child {
+    border-top: 1px solid #ccc;
+}
+
+nav ul li a:not(#contact) {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 1rem 2rem;
+}
+
+/* head */
+.head-text {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+
+main {
+    margin: 2rem;
+    max-width: 100%;
+}
+
+.groepsfoto {
+    width: 100%;
+    max-width: calc(100% - 4rem);
+    border-radius: var(--borderradius);
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    height: 225px;
+    object-fit: cover;
+}
+
