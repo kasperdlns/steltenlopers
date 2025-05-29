@@ -102,7 +102,7 @@ nav ul li a:not(#contact) {
     margin: 2rem 0;
 }
 
-
+/* main */
 main {
     margin: 2rem;
     max-width: 100%;
@@ -126,15 +126,32 @@ main h2 {
     margin-bottom: -0.5rem;
 }
 
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+.social-media a i {
+    text-align: center;
+    gap: 1rem;
+    color: black;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    border: none;
+}
+
 /* footer */
 footer {
     background-color: #000;
     color: yellow;
-    padding: 1rem 0;
+    padding: 1rem 2rem;
     text-align: center;
     box-shadow: var(--shadow);
-    bottom: 0;
-    width: 100%;
+    max-width: 100%;
 }
 
 footer section h3 {
