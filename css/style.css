@@ -156,6 +156,14 @@ main h2 {
     border: none;
 }
 
+.kalender iframe {
+    max-width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: var(--borderradius);
+    box-shadow: var(--shadow);
+}
+
 /* footer */
 footer {
     background-color: var(--black);
