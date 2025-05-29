@@ -164,6 +164,16 @@ main h2 {
     box-shadow: var(--shadow);
 }
 
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.links a {
+    color: var(--red);
+}
+
 /* footer */
 footer {
     background-color: var(--black);
