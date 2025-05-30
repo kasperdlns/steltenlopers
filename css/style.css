@@ -203,7 +203,7 @@ footer div section p {
 }
 
 /* groter scherm */
-@media (min-width: 1050px) {
+@media (min-width: 950px) {
     nav {
         display: flex;
         justify-content: space-between;
@@ -224,7 +224,7 @@ footer div section p {
         width: auto;
         background-color: transparent;
         justify-content: flex-end;
-        gap: 1rem;
+        gap: 0rem;
         transition: none;
     }
 
@@ -267,5 +267,12 @@ footer div section p {
 
     .logo {
         height: 50px;
+    }
+
+    footer div {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        gap: 2rem;
     }
 }
