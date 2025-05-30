@@ -170,7 +170,7 @@ main h2 {
     gap: .5rem;
 }
 
-.links a {
+a {
     color: var(--red);
 }
 
