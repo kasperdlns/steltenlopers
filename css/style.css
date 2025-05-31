@@ -17,9 +17,10 @@ body {
 }
 
 .favicon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%; /* maakt het perfect rond */
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    /* maakt het perfect rond */
 }
 
 /* header */
@@ -83,6 +84,7 @@ nav ul li:not(:last-child) {
     border-radius: var(--borderradius);
     text-align: center;
     margin-top: 2rem;
+    border: red 1px solid;
 }
 
 #contact:hover {
@@ -198,16 +200,20 @@ a {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
 }
 
 .gallery img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: var(--borderradius);
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--borderradius);
+}
+
+.oud {
+    margin-top: 1rem;
 }
 
 
@@ -295,6 +301,13 @@ footer div section p {
         margin-left: 0rem;
         transition: none;
         color: var(--red);
+    }
+
+    #contact:hover {
+        box-shadow: none;
+        color: var(--red);
+        background-color: white;
+        border: red 1px solid;
     }
 
     nav div {
