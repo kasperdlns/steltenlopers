@@ -184,6 +184,13 @@ a {
     border-radius: var(--borderradius);
 }
 
+.contact-container i {
+    font-size: 2rem;
+    color: var(--red);
+    margin-right: 1rem;
+
+}
+
 /* footer */
 footer {
     background-color: var(--black);
