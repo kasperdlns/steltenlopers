@@ -184,13 +184,16 @@ a {
 
 .Historiek section div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     justify-items: center;
+    gap: 1rem;
 }
 
 .Historiek img {
     border-radius: var(--borderradius);
 }
+
+
 
 .contact-container i {
     font-size: 2rem;
@@ -223,23 +226,26 @@ a {
 }
 
 .overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .overlay img.groot {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
 }
 
 
@@ -269,6 +275,12 @@ footer div section p {
         justify-items: center;
         gap: 2rem;
         margin: 2rem;
+    }
+
+    .Historiek section div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 }
 
