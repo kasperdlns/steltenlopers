@@ -25,3 +25,22 @@ setInterval(() => {
     headerFoto.src = `images/Header/header${count}.jpg`;
     headerFoto.alt = `header${count}`;
 }, 5000);
+
+//fotos vergroten
+let gallery = document.querySelectorAll(".gallery img");
+let overlay = document.querySelector(".overlay");
+let groteAfbeelding = document.querySelector(".overlay img.groot");
+
+gallery.forEach(img => {
+    img.addEventListener("click", (e) => {
+        groteAfbeelding.src = e.target.src;
+        overlay.classList.remove("hidden");
+    });
+});
+
+overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+        overlay.classList.add("hidden"); // overlay wordt verwijderd
+        groteAfbeelding.src = ""; // img leegmaken
+    };
+});
