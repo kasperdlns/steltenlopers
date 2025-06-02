@@ -148,9 +148,9 @@ main h2 {
 
 .social-media {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    gap: 5rem;
+    gap: 1rem;
     margin-top: 2rem;
 }
 
@@ -162,6 +162,14 @@ main h2 {
     text-decoration: none;
     transition: color 0.3s;
     border: none;
+}
+
+.historiek_img1 {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1rem;
 }
 
 .kalender iframe {
