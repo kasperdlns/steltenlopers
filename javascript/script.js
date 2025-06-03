@@ -44,3 +44,38 @@ overlay.addEventListener("click", (e) => {
         groteAfbeelding.src = ""; // img leegmaken
     };
 });
+
+//vorige en volgende foto, kruisje voor sluiten
+let prev = document.querySelector('.prev');
+let next = document.querySelector('.next');
+let close = document.querySelector('.close');
+let huidigeIndex = 0
+
+gallery.forEach((img, index) => {
+  img.addEventListener("click", (e) => {
+    huidigeIndex = index; // sla de index op
+    groteAfbeelding.src = e.target.src;
+    overlay.classList.remove("hidden");
+  });
+});
+
+next.addEventListener("click", () => {
+    huidigeIndex++;
+    if (huidigeIndex >= gallery.length) {
+        huidigeIndex = 0; // terug naar begin
+    }
+    groteAfbeelding.src = gallery[huidigeIndex].src;
+});
+
+prev.addEventListener("click", () => {
+    huidigeIndex--;
+    if (huidigeIndex < 0) {
+        huidigeIndex = gallery.length - 1; // naar laatste
+    }
+    groteAfbeelding.src = gallery[huidigeIndex].src;
+});
+
+close.addEventListener("click", function() {
+        overlay.classList.add("hidden");
+        groteAfbeelding.src = "";
+});
