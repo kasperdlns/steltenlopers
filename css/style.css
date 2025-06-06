@@ -319,6 +319,14 @@ footer div section p {
     margin-bottom: 2rem;
 }
 
+nav div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+
 @media (min-width: 800px) {
     .header {
         display: grid;
@@ -337,7 +345,23 @@ footer div section p {
 }
 
 /* groter scherm */
-@media (min-width: 950px) {
+@media (max-width: 1143px) {  /* taalswitch */
+  nav div {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .taalswitch {
+    order: 1;
+  }
+
+  .burger {
+    order: 2;
+  }
+}
+
+
+@media (min-width: 1144px) {
     nav {
         display: flex;
         justify-content: space-between;
