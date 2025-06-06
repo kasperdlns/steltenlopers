@@ -320,10 +320,10 @@ footer div section p {
 }
 
 nav div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
 }
 
 
@@ -345,19 +345,25 @@ nav div {
 }
 
 /* groter scherm */
-@media (max-width: 1143px) {  /* taalswitch */
-  nav div {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+@media (max-width: 1143px) {
 
-  .taalswitch {
-    order: 1;
-  }
+    /* taalswitch */
+    nav div {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
-  .burger {
-    order: 2;
-  }
+    .taalswitch {
+        order: 1;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.9em;
+    }
+
+    .burger {
+        order: 2;
+    }
 }
 
 
