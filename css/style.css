@@ -13,7 +13,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    margin-top: 6rem;
+    margin: 0;
 }
 
 .favicon {
@@ -124,6 +124,11 @@ nav ul li a:not(#contact) {
     margin: 0 auto;
     height: 225px;
     object-fit: cover;
+}
+header {
+    background-color: var(--yellow);
+    margin-top: 4.5rem;
+    padding: 1rem 0;
 }
 
 /* main */
