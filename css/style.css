@@ -35,6 +35,15 @@
       color: #000;
     }
 
+    /* mobile phone */
+@media (max-width: 600px) {
+    .close-btn {
+        font-size: 36px;
+        top: 4px;
+        right: 8px;
+
+    }
+}
 
 :root {
     --h1: clamp(2rem, 5vw, 3rem);
