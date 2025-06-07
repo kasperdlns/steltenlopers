@@ -78,4 +78,4 @@ prev.addEventListener("click", () => {
 close.addEventListener("click", function() {
         overlay.classList.add("hidden");
         groteAfbeelding.src = "";
-});
+})

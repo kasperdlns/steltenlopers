@@ -1,3 +1,4 @@
+
 :root {
     --h1: clamp(2rem, 5vw, 3rem);
     --h2: clamp(1.5rem, 5vw, 2rem);
@@ -351,6 +352,9 @@ nav div {
 
 @media (max-width: 1143px) {
 
+    .header {
+        margin-bottom: 2rem;
+    }
     /* taalswitch */
     nav div {
         flex-direction: row;
