@@ -176,6 +176,8 @@ header {
     background-color: var(--yellow);
     margin-top: 4.5rem;
     padding: 1rem 0;
+    border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
 }
 
 /* main */
@@ -361,6 +363,8 @@ footer {
     text-align: center;
     box-shadow: var(--shadow);
     max-width: 100%;
+    border-top-right-radius: 3rem;
+    border-top-left-radius: 3rem;
 }
 
 footer section h3 {
