@@ -264,6 +264,48 @@ a {
 
 }
 
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: var(--borderradius);
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form input, textarea {
+    border: 1px solid var(--grijstint);
+    border-radius: 5px;
+}
+
+.contact-form input {
+    height: 2rem;
+}
+
+
+.contact-form input:focus, textarea:focus {
+    border: 2px solid var(--red);
+    outline: none;
+}
+
+.submit {
+    background-color: var(--red);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--borderradius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: var(--red) 1px solid;
+}
+
+.submit:hover {
+    background-color: transparent;
+    color: var(--red);
+    border: 1px solid var(--red);
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

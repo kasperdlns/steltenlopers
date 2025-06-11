@@ -55,28 +55,25 @@
     <main>
         <div class="contact-container width">
             <h1>Contacteer ons</h1>
+            contacteer ons via het contactformulier of via de telefoon. Wij proberen zo snel mogelijk te
+            antwoorden op uw bericht. Voor dringende zaken kan u ons ook telefonisch bereiken.
             <div class="contact-info">
-                <p><strong>Adres:</strong> <a
-                        href="https://www.google.be/maps/place/Koninklijke+Steltenlopers+Merchtem/@50.9476736,4.2404315,18.96z/data=!4m15!1m8!3m7!1s0x47c3eabb691d368b:0xa5ba8307ef432b6f!2sKoeweideblock,+1785+Merchtem!3b1!8m2!3d50.9476559!4d4.241896!16s%2Fg%2F11j7z11z57!3m5!1s0x47c394daf25bab4f:0x4bcded5fd2d72c22!8m2!3d50.9474608!4d4.2408845!16s%2Fg%2F11bzx4pg6d?hl=nl&entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D">Koeweideblock
-                        9, 1785 Merchtem</a></p>
                 <p><strong>Telefoon president:</strong> <a href="tel:+32476373786">+32 (0)476.37.37.86</a></p>
 
-                <form action="contact.php" method="POST">
-                    <label for="name">Your Name:</label><br />
+                <form action="contact.php" method="POST" class="contact-form">
+                    <label for="name">Jouw naam:</label><br />
                     <input type="text" id="name" name="name" required /><br /><br />
 
-                    <label for="email">Your Email:</label><br />
+                    <label for="email">Jouw Email:</label><br />
                     <input type="email" id="email" name="email" required /><br /><br />
 
-                    <label for="message">Message:</label><br />
+                    <label for="message">Bericht:</label><br />
                     <textarea id="message" name="message" rows="5" required></textarea><br /><br />
 
-                    <button type="submit">Send</button>
+                    <button class="submit" type="submit">Verstuur</button>
                 </form>
 
-                <p><strong>Openingsuren lokaal:</strong>
-                    Za: 14:00 - 18:00 (indien er geen groepsoptreden gepland is, check hiervoor onze <a
-                        href="Kalender.html">kalender</a>)<br>
+                
                 <div class="socials">
                     <p><strong>Sociale media:</strong></p>
                     <a href="https://www.instagram.com/steltenlopers/" target="_blank"><i
