@@ -283,6 +283,10 @@ a {
     height: 2rem;
 }
 
+.coantact-form label {
+    margin-bottom: -0.5rem;
+}
+
 
 .contact-form input:focus, textarea:focus {
     border: 2px solid var(--red);
