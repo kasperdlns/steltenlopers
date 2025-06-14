@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="cultureelErfgoed.html">Cultureel Erfgoed</a></li>
                 <li><a href="Historiek.html">Historiek</a></li>
                 <li><a href="fotos.html">Foto's</a></li>
-                <li><a id="contact" href="Contact.html">Contact</a></li>
+                <li><a id="contact" href="Contact.php">Contact</a></li>
             </ul>
         </nav>
 
@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <section>
                 <h3>Boekingen</h3>
                 <p>U kan ons boeken voor uw evenement, feest of promotieactiviteit. Wij treden op in België en ver
-                    daarbuiten! Geef een seintje via de <a href="Contact.html">contactpagina</a> en wij nemen zo snel
+                    daarbuiten! Geef een seintje via de <a href="Contact.php">contactpagina</a> en wij nemen zo snel
                     mogelijk contact op.</p>
             </section>
 

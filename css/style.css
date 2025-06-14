@@ -421,6 +421,10 @@ footer div section p {
     margin-bottom: 2rem;
 }
 
+.CulErf {
+    margin-top: 1rem;
+}
+
 nav div {
     display: flex;
     justify-content: space-between;
