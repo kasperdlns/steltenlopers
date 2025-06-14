@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <section>
                 <h3>Immaterieel Cultureel Erfgoed</h3>
                 <p>in 2019 zijn wij erkend als immaterieel, Cultureel erfgoed. Hier zijn wij tot op de dag van
-                    vandaag nog heel trots op!</p>
+                    vandaag nog heel trots op! <br><img class="CulErf" src="images/logo_inventaris_immaterieel_erfgoed.jpg" alt="img cultureel erfgoed" width="50%"></p>
             </section>
 
             <section>
