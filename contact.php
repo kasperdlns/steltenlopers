@@ -50,9 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input id="checkbox" type="checkbox">
 
                 <div class="taalswitch">
-                    <a href="index.html">NL</a>
+                    <a href="contact.php">NL</a>
                     <p> | </p>
-                    <a href="FR-index.html">FR</a>
+                    <a href="FR-contact.php">FR</a>
                     <p> | </p>
                     <a href="EN-index.html">EN</a>
                 </div>

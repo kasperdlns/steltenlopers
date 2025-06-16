@@ -48,11 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input id="checkbox" type="checkbox" />
 
                 <div class="taalswitch">
-                    <a href="Contact.html">NL</a>
+                    <a href="Contact.php">NL</a>
                     <p> | </p>
-                    <a href="FR-contact.html">FR</a>
+                    <a href="FR-contact.php">FR</a>
                     <p> | </p>
-                    <a href="EN-index.html">EN</a>
+                    <a href="EN-contact.php">EN</a>
                 </div>
             </div>
 
