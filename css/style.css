@@ -19,7 +19,7 @@
   position: relative;
   max-width: 400px;
   width: 90%;
-  text-align: left; /* fix centrering van kruisje */
+  text-align: center; /* fix centrering van kruisje */
   max-height: 90vh;
   overflow-y: auto;
 }
