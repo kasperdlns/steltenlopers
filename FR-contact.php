@@ -1,29 +1,52 @@
 <?php
 $feedback = "";
 
+// Fonction pour vérifier l’injection d’en-têtes
+function contientDesSautsDeLigne($str) {
+    return preg_match("/[\r\n]/", $str);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars(strip_tags(trim($_POST['name'])));
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $message = htmlspecialchars(strip_tags(trim($_POST['message'])));
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $feedback = "Adresse e-mail invalide.";
+    // Champ honeypot (doit être vide)
+    if (!empty($_POST['website'])) {
+        $feedback = "❌ Bot détecté.";
     } else {
-        $to = "daelemans.kasper@gmail.com";
-        $subject = "Nouveau message de $name via le formulaire de contact";
-        $body = "Nom: $name\nEmail: $email\n\nMessage:\n$message";
+        // Validation reCAPTCHA
+        $captcha = $_POST['g-recaptcha-response'] ?? '';
+        $secretKey = "JOUW_SECRET_KEY_HIER";  // <-- Remplace par ta secret key
 
-        $headers = "From: contact@steltenlopers\r\n";
-        $headers .= "Reply-To: $email\r\n";
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
+        $responseKeys = json_decode($response, true);
 
-        if (mail($to, $subject, $body, $headers)) {
-            $feedback = "✅ Message envoyé avec succès. Merci, $name !";
+        if (intval($responseKeys["success"]) !== 1) {
+            $feedback = "❌ Veuillez valider le captcha.";
         } else {
-            $feedback = "❌ Une erreur s'est produite. Veuillez réessayer plus tard.";
+            $name = htmlspecialchars(strip_tags(trim($_POST['name'])));
+            $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+            $message = htmlspecialchars(strip_tags(trim($_POST['message'])));
+
+            // Validation de l'email + injection d’en-tête
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL) || contientDesSautsDeLigne($email)) {
+                $feedback = "❌ Adresse e-mail invalide.";
+            } else {
+                $to = "daelemans.kasper@gmail.com";
+                $subject = "Nouveau message de $name via le formulaire de contact";
+                $body = "Nom : $name\nE-mail : $email\n\nMessage :\n$message";
+
+                $headers = "From: contact@steltenlopers\r\n";
+                $headers .= "Reply-To: $email\r\n";
+
+                if (mail($to, $subject, $body, $headers)) {
+                    $feedback = "✅ Message envoyé avec succès. Merci, $name !";
+                } else {
+                    $feedback = "❌ Une erreur s'est produite. Veuillez réessayer plus tard.";
+                }
+            }
         }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -36,6 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://kit.fontawesome.com/d9196de2ad.js" crossorigin="anonymous"></script>
     <link rel="icon" href="images/logo.jpg" type="image/png" />
+    
+    <!-- reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -52,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p> | </p>
                     <a href="FR-contact.php">FR</a>
                     <p> | </p>
-                    <a href="EN-contact.php">EN</a>
+                    <a href="EN-Contact.php">EN</a>
                 </div>
             </div>
 
@@ -97,6 +123,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <label for="message">Message :</label><br />
                     <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+
+                    <!-- Honeypot field (hidden) -->
+                    <input type="text" name="website" style="display:none" />
+
+                    <!-- reCAPTCHA widget -->
+                    <div class="g-recaptcha" data-sitekey="6LcVQGYrAAAAAH5sGqPEXtHCJvpX5tcMU3hGSSu8"></div><br>
 
                     <button class="submit" type="submit">Envoyer</button>
                 </form>

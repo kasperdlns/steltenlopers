@@ -1,25 +1,45 @@
 <?php
 $feedback = "";
 
+// Functie om headers te checken tegen injectie
+function containsNewlines($str) {
+    return preg_match("/[\r\n]/", $str);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars(strip_tags(trim($_POST['name'])));
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $message = htmlspecialchars(strip_tags(trim($_POST['message'])));
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $feedback = "Invalid email address.";
+    if (!empty($_POST['website'])) {
+        $feedback = "❌ Bot detected.";
     } else {
-        $to = "daelemans.kasper@gmail.com";
-        $subject = "New message from $name via the contact form";
-        $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+        // CAPTCHA check
+        $captcha = $_POST['g-recaptcha-response'] ?? '';
+        $secretKey = "JOUW_SECRET_KEY_HIER"; // Vervang door jouw echte secret key
 
-        $headers = "From: contact@steltenlopers\r\n";
-        $headers .= "Reply-To: $email\r\n";
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
+        $responseKeys = json_decode($response, true);
 
-        if (mail($to, $subject, $body, $headers)) {
-            $feedback = "✅ Message sent successfully. Thank you, $name!";
+        if (intval($responseKeys["success"]) !== 1) {
+            $feedback = "❌ Please complete the CAPTCHA.";
         } else {
-            $feedback = "❌ An error occurred. Please try again later.";
+            $name = htmlspecialchars(strip_tags(trim($_POST['name'])));
+            $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+            $message = htmlspecialchars(strip_tags(trim($_POST['message'])));
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL) || containsNewlines($email)) {
+                $feedback = "❌ Invalid email address.";
+            } else {
+                $to = "daelemans.kasper@gmail.com";
+                $subject = "New message from $name via the contact form";
+                $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+                $headers = "From: contact@steltenlopers\r\n";
+                $headers .= "Reply-To: $email\r\n";
+
+                if (mail($to, $subject, $body, $headers)) {
+                    $feedback = "✅ Message sent successfully. Thank you, $name!";
+                } else {
+                    $feedback = "❌ An error occurred. Please try again later.";
+                }
+            }
         }
     }
 }
@@ -30,12 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact</title>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://kit.fontawesome.com/d9196de2ad.js" crossorigin="anonymous"></script>
     <link rel="icon" href="images/logo.jpg" type="image/png" />
+    <!-- Google reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -52,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p> | </p>
                     <a href="FR-contact.php">FR</a>
                     <p> | </p>
-                    <a href="EN-contact.php">EN</a>
+                    <a href="EN-Contact.php">EN</a>
                 </div>
             </div>
 
@@ -97,6 +119,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <label for="message">Message:</label><br />
                     <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+
+                    <!-- reCAPTCHA widget -->
+                    <div class="g-recaptcha" data-sitekey="6LcVQGYrAAAAAH5sGqPEXtHCJvpX5tcMU3hGSSu8"></div>
+                    <br />
 
                     <button class="submit" type="submit">Send</button>
                 </form>

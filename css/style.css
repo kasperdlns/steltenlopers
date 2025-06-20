@@ -1,48 +1,55 @@
 /* popup */
 .popup {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .popup.hidden {
-      display: none;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup.hidden {
+    display: none;
+}
+
 .popup-content {
-  background: white;
-  padding: 20px 30px 30px 30px; /* extra ruimte onderaan voor content */
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  position: relative;
-  max-width: 400px;
-  width: 90%;
-  text-align: center; /* fix centrering van kruisje */
-  max-height: 90vh;
-  overflow-y: auto;
+    background: white;
+    padding: 20px 30px 30px 30px;
+    /* extra ruimte onderaan voor content */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    /* fix centrering van kruisje */
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .close-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  border: none;
-  background: none;
-  font-size: 32px;
-  cursor: pointer;
-  color: #555;
-  line-height: 1;
-  padding: 0;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #555;
+    line-height: 1;
+    padding: 0;
 }
 
 .close-btn:hover {
-  color: #000;
+    color: #000;
 }
 
 
-    /* mobile phone */
+/* mobile phone */
 @media (max-width: 600px) {
     .close-btn {
         font-size: 36px;
@@ -179,12 +186,13 @@ nav ul li a:not(#contact) {
     height: 225px;
     object-fit: cover;
 }
+
 header {
     background-color: var(--yellow);
     margin-top: 4.5rem;
     padding: 1rem 0;
     border-bottom-left-radius: 3rem;
-  border-bottom-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
 }
 
 /* main */
@@ -281,7 +289,8 @@ a {
     margin: 0 auto;
 }
 
-.contact-form input, textarea {
+.contact-form input,
+textarea {
     border: 1px solid var(--grijstint);
     border-radius: 5px;
 }
@@ -295,7 +304,8 @@ a {
 }
 
 
-.contact-form input:focus, textarea:focus {
+.contact-form input:focus,
+textarea:focus {
     border: 2px solid var(--red);
     outline: none;
 }
@@ -328,17 +338,15 @@ a {
     height: 200px;
     object-fit: cover;
     border-radius: var(--borderradius);
+    max-height: 200px;
+    cursor: pointer;
+    border-radius: 0.5rem;
 }
 
 .oud {
     margin-top: 1rem;
 }
 
-.gallery img {
-    max-height: 200px;
-    cursor: pointer;
-    border-radius: 0.5rem;
-}
 
 .overlay {
     position: fixed;
@@ -418,6 +426,7 @@ footer {
     max-width: 100%;
     border-top-right-radius: 3rem;
     border-top-left-radius: 3rem;
+    /*footer beneden plaatsen*/
 }
 
 footer section h3 {
@@ -430,7 +439,7 @@ footer div section p {
 
 .CulErf {
     margin-top: 1rem;
-   max-width: 15rem;
+    max-width: 15rem;
     gap: 1rem;
 }
 
@@ -464,6 +473,7 @@ nav div {
     .header {
         margin-bottom: 2rem;
     }
+
     /* taalswitch */
     nav div {
         flex-direction: row;

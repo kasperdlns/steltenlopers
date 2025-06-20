@@ -1,29 +1,58 @@
 <?php
 $feedback = "";
 
+// reCAPTCHA geheime sleutel
+$recaptcha_secret = "6LcVQGYrAAAAAGYl-GhRdFfPALxIQgM9JrwbL3gi";
+
+// Functie om headers te checken tegen injectie
+function bevatNieuweRegels($str) {
+    return preg_match("/[\r\n]/", $str);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars(strip_tags(trim($_POST['name'])));
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $message = htmlspecialchars(strip_tags(trim($_POST['message'])));
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $feedback = "Ongeldig e-mailadres.";
+    // Honeypot veld (moet leeg zijn)
+    if (!empty($_POST['website'])) {
+        $feedback = "❌ Bot gedetecteerd.";
+    } 
+    // reCAPTCHA check
+    elseif (empty($_POST['g-recaptcha-response'])) {
+        $feedback = "❌ Bevestig dat je geen robot bent.";
     } else {
-        $to = "daelemans.kasper@gmail.com";
-        $subject = "Nieuw bericht van $name via het contactformulier";
-        $body = "Naam: $name\nEmail: $email\n\nBericht:\n$message";
+        $recaptcha_response = $_POST['g-recaptcha-response'];
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
+        $response_data = json_decode($response);
 
-        $headers = "From: contact@steltenlopers\r\n";
-        $headers .= "Reply-To: $email\r\n";
-
-        if (mail($to, $subject, $body, $headers)) {
-            $feedback = "✅ Bericht succesvol verzonden. Bedankt, $name!";
+        if (!$response_data->success) {
+            $feedback = "❌ reCAPTCHA-verificatie mislukt. Probeer opnieuw.";
         } else {
-            $feedback = "❌ Er is iets misgelopen. Probeer later opnieuw.";
+            // ✅ CAPTCHA geslaagd, ga verder met validatie
+            $name = htmlspecialchars(strip_tags(trim($_POST['name'])));
+            $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+            $message = htmlspecialchars(strip_tags(trim($_POST['message'])));
+
+            // Email validatie + header injection check
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL) || bevatNieuweRegels($email)) {
+                $feedback = "❌ Ongeldig e-mailadres.";
+            } else {
+                $to = "daelemans.kasper@gmail.com";
+                $subject = "Nieuw bericht van $name via het contactformulier";
+                $body = "Naam: $name\nE-mail: $email\n\nBericht:\n$message";
+
+                $headers = "From: contact@steltenlopers\r\n";
+                $headers .= "Reply-To: $email\r\n";
+
+                if (mail($to, $subject, $body, $headers)) {
+                    $feedback = "✅ Bericht succesvol verzonden. Bedankt, $name!";
+                } else {
+                    $feedback = "❌ Er is een fout opgetreden. Probeer het later opnieuw.";
+                }
+            }
         }
     }
 }
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -37,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/d9196de2ad.js" crossorigin="anonymous"></script>
     <link rel="icon" href="images/logo.jpg" type="image/png">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 
@@ -54,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p> | </p>
                     <a href="FR-contact.php">FR</a>
                     <p> | </p>
-                    <a href="EN-index.html">EN</a>
+                    <a href="EN-Contact.php">EN</a>
                 </div>
             </div>
 
@@ -101,6 +131,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="message">Bericht:</label><br />
                     <textarea id="message" name="message" rows="5" required></textarea><br /><br />
 
+                    <div class="g-recaptcha" data-sitekey="6LcVQGYrAAAAAH5sGqPEXtHCJvpX5tcMU3hGSSu8"></div>
+                    <br>
                     <button class="submit" type="submit">Verstuur</button>
 
                 </form>
