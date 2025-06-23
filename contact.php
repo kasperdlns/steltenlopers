@@ -112,9 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <div class="contact-container width">
-            <?php if (!empty($feedback)): ?>
-                     <p class="feedback"><?= $feedback ?></p>
-                <?php endif; ?>
+            
             <h1>Contacteer ons</h1>
             contacteer ons via het contactformulier of via de telefoon. Wij proberen zo snel mogelijk te
             antwoorden op uw bericht. Voor dringende zaken kan u ons ook telefonisch bereiken.
@@ -122,6 +120,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p><strong>Telefoon president:</strong> <a href="tel:+32476373786">+32 (0)476.37.37.86</a></p>
 
                 <form action="" method="POST" class="contact-form">
+                    <?php if (!empty($feedback)): ?>
+                     <p class="feedback"><?= $feedback ?></p>
+                <?php endif; ?>
                     <label for="name">Jouw naam:</label><br />
                     <input type="text" id="name" name="name" required /><br /><br />
 
@@ -133,6 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <div class="g-recaptcha" data-sitekey="6LcVQGYrAAAAAH5sGqPEXtHCJvpX5tcMU3hGSSu8"></div>
                     <br>
+                    
                     <button class="submit" type="submit">Verstuur</button>
 
                 </form>

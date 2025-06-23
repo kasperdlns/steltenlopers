@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Validation reCAPTCHA
         $captcha = $_POST['g-recaptcha-response'] ?? '';
-        $secretKey = "JOUW_SECRET_KEY_HIER";  // <-- Remplace par ta secret key
+        $secretKey = "6LcVQGYrAAAAAGYl-GhRdFfPALxIQgM9JrwbL3gi";  // <-- Remplace par ta secret key
 
         $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
         $responseKeys = json_decode($response, true);
