@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="header width">
             <div class="head-text">
-                <h1>The Royal Stilt Walkers of Merchtem</h1>
+                <h1>The Royal Stiltwalkers of Merchtem</h1>
                 <h2>Above the crowd, for generations</h2>
             </div>
             <img class="groepsfoto" src="images/Header/header1.jpg" alt="header1" />
