@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h1>Les Echassiers Royaux de Merchtem</h1>
                 <h2>Au-dessus de la foule, depuis des générations</h2>
             </div>
-            <img class="groepsfoto" src="images/Header/header1.jpg" alt="header1" />
+            <img class="groepsfoto" src="images/Header/header2.jpg" alt="header2" />
         </div>
     </header>
 

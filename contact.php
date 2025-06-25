@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Hoog boven de massa, al generaties lang</h2>
             </div>
             <!-- slideshow -->
-            <img class="groepsfoto" src="images/Header/header1.jpg" alt="header1">
+            <img class="groepsfoto" src="images/Header/header2.jpg" alt="header2">
         </div>
     </header>
 
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="contact-container width">
             
             <h1>Contacteer ons</h1>
-            contacteer ons via het contactformulier of via de telefoon. Wij proberen zo snel mogelijk te
+            Contacteer ons via het contactformulier of via de telefoon. Wij proberen zo snel mogelijk te
             antwoorden op uw bericht. Voor dringende zaken kan u ons ook telefonisch bereiken.
             <div class="contact-info">
                 <p><strong>Telefoon president:</strong> <a href="tel:+32476373786">+32 (0)476.37.37.86</a></p>

@@ -333,6 +333,19 @@ textarea:focus {
     gap: 1rem;
 }
 
+.videos {
+    margin-top: 1rem;
+}
+
+.youtube h2 {
+    margin-bottom: 1rem;
+}
+.videos iframe {
+    max-width: 100%;
+    gap: 1rem;
+    border-radius: var(--borderradius);
+}
+
 .gallery img {
     width: 100%;
     height: 200px;
