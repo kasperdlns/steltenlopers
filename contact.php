@@ -34,11 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL) || bevatNieuweRegels($email)) {
                 $feedback = "❌ Ongeldig e-mailadres.";
             } else {
-                $to = "daelemans.kasper@gmail.com";
+                $to = "info@steltenlopersmerchtem.be";
                 $subject = "Nieuw bericht van $name via het contactformulier";
                 $body = "Naam: $name\nE-mail: $email\n\nBericht:\n$message";
 
-                $headers = "From: contact@steltenlopers\r\n";
+                $headers = "From: info@steltenlopersmerchtem.be\r\n";
                 $headers .= "Reply-To: $email\r\n";
 
                 if (mail($to, $subject, $body, $headers)) {
@@ -164,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <section>
                 <h3>Immaterieel Cultureel Erfgoed</h3>
-                <p>in 2019 zijn wij erkend als immaterieel, Cultureel erfgoed. Hier zijn wij tot op de dag van
+                <p>In 2019 zijn wij erkend als immaterieel, Cultureel erfgoed. Hier zijn wij tot op de dag van
                     vandaag nog heel trots op! <br><img class="CulErf" src="images/logo_inventaris_immaterieel_erfgoed.jpg" alt="img cultureel erfgoed" width="50%"></p>
             </section>
 

@@ -27,11 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL) || containsNewlines($email)) {
                 $feedback = "❌ Invalid email address.";
             } else {
-                $to = "daelemans.kasper@gmail.com";
+                $to = "info@steltenlopersmerchtem.be";
                 $subject = "New message from $name via the contact form";
                 $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
 
-                $headers = "From: contact@steltenlopers\r\n";
+                $headers = "From: info@steltenlopers.be\r\n";
                 $headers .= "Reply-To: $email\r\n";
 
                 if (mail($to, $subject, $body, $headers)) {

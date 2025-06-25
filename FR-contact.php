@@ -29,11 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL) || contientDesSautsDeLigne($email)) {
                 $feedback = "❌ Adresse e-mail invalide.";
             } else {
-                $to = "daelemans.kasper@gmail.com";
+                $to = "info@steltenlopersmerchtem.be";
                 $subject = "Nouveau message de $name via le formulaire de contact";
                 $body = "Nom : $name\nE-mail : $email\n\nMessage :\n$message";
 
-                $headers = "From: contact@steltenlopers\r\n";
+                $headers = "From: info@steltenlopers.be\r\n";
                 $headers .= "Reply-To: $email\r\n";
 
                 if (mail($to, $subject, $body, $headers)) {
