@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </section>
 
             <section>
-                <h3>Koeweideblock 9, 1785 Merchten Belgium</h3>
+                <h3>Koeweideblock 9, 1785 Merchtem Belgium</h3>
                 <p><a href="mailto:info@steltenlopersmerchtem.be">info@steltenlopersmerchtem.be</a></p>
             </section>
         </div>

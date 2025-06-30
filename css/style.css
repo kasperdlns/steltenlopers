@@ -333,18 +333,26 @@ textarea:focus {
     gap: 1rem;
 }
 
-.videos {
-    margin-top: 1rem;
-}
+.youtube {
+        padding: 1rem;
+    }
 
-.youtube h2 {
-    margin-bottom: 1rem;
-}
-.videos iframe {
-    max-width: 100%;
-    gap: 1rem;
-    border-radius: var(--borderradius);
-}
+    .youtube h2 {
+        text-align: center;
+    }
+
+    .videos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .videos iframe {
+        flex: 1 1 300px;
+        max-width: 560px;
+        height: 315px;
+    }
 
 .gallery img {
     width: 100%;
