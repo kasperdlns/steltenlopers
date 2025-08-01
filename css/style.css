@@ -1,4 +1,3 @@
-
 /* mobile phone */
 @media (max-width: 600px) {
     .close-btn {
@@ -100,12 +99,12 @@ nav ul li:not(:last-child) {
 
 #contact:hover {
     box-shadow: var(--shadow);
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.3s;
 }
 
 nav ul li:hover a:not(#contact) {
     margin-left: 0.5rem;
-    transition: margin-left 0.2s;
+    transition: margin-left 0.3s;
 }
 
 
@@ -284,25 +283,25 @@ textarea:focus {
 }
 
 .youtube {
-        padding: 1rem;
-    }
+    padding: 1rem;
+}
 
-    .youtube h2 {
-        text-align: center;
-    }
+.youtube h2 {
+    text-align: center;
+}
 
-    .videos {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-    }
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
 
-    .videos iframe {
-        flex: 1 1 300px;
-        max-width: 560px;
-        height: 315px;
-    }
+.videos iframe {
+    flex: 1 1 300px;
+    max-width: 560px;
+    height: 315px;
+}
 
 .gallery img {
     width: 100%;
