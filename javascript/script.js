@@ -67,8 +67,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 groteAfbeelding.src = "";
             });
         }
-    }
 
+       
+        document.addEventListener("keydown", (e) => {
+            if (!overlay.classList.contains("hidden")) {
+                if (e.key === "ArrowRight") {
+                    
+                    huidigeIndex = (huidigeIndex + 1) % gallery.length;
+                    groteAfbeelding.src = gallery[huidigeIndex].src;
+                } else if (e.key === "ArrowLeft") {
+                    
+                    huidigeIndex = (huidigeIndex - 1 + gallery.length) % gallery.length;
+                    groteAfbeelding.src = gallery[huidigeIndex].src;
+                } 
+            }
+        });
+    }
 
     const popup = document.getElementById("eventPopup");
     const closeBtn = document.getElementById("closePopup");
@@ -80,7 +94,5 @@ document.addEventListener("DOMContentLoaded", function () {
     closeBtn.addEventListener("click", () => {
         popup.classList.add("hidden");
     });
-
-
 
 });
