@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <nav>
             <div>
-                <a href="FR-index.html"><img class="logo" src="images/logo.jpg" alt="logo" width="50" /></a>
+                <a href="EN-index.html"><img class="logo" src="images/logo.jpg" alt="logo" width="50"></a>
 
                 <label class="burger" for="checkbox">&equiv;</label>
                 <input id="checkbox" type="checkbox" />
